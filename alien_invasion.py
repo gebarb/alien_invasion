@@ -32,6 +32,8 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
+        self.firing = False
+
         self._create_fleet()
 
         # Make the play button
@@ -48,7 +50,9 @@ class AlienInvasion:
             self._update_screen()
 
     def _check_events(self):
-        """Respond to keypress and mouse events"""
+        """Respond to automatic, keypress, and mouse events"""
+        if self.firing:
+            self._fire_bullet()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
@@ -69,7 +73,7 @@ class AlienInvasion:
         elif event.key == pygame.K_q:
             sys.exit()
         elif event.key == pygame.K_SPACE:
-            self._fire_bullet()
+            self.firing = True
 
     def _check_keyup_events(self, event):
         """Respond to key releases"""
@@ -77,6 +81,8 @@ class AlienInvasion:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
+        elif event.key == pygame.K_SPACE:
+            self.firing = False
 
     def _check_play_button(self, mouse_pos):
         """Start a new game when the player clicks Play"""
