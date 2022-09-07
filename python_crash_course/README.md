@@ -1,4 +1,4 @@
-# Example Projects from `Python Crash Course`
+# Projects from `Python Crash Course`
 
-### Book
+### Book Link
 * https://nostarch.com/pythoncrashcourse2e
