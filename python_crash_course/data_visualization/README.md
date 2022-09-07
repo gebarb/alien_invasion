@@ -2,9 +2,11 @@
 
 ## Graph Files
 * Simple Line Graph
-    - mpl_squares.py
+    - `mpl_squares.py`
 * Scatter Plot
-    - scatter_squares.py
+    - `scatter_squares.py`
+* Random Walk
+    - `rw_visual.py`
 
     
 ### Execution Steps
