@@ -15,5 +15,7 @@
 ### Downloading Data
 * CSV
     - `sitka_highs.py`
+    - `sitka_highs_lows.py`
+    - `death_valley_highs_lows.py`
 ### Execution Steps
 `python3 {filename}`
