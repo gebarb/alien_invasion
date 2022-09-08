@@ -24,6 +24,9 @@
 * GitHub `https://github.com/`
     - `python_repos.py`
     - `python_repos_visual.py`
+* Hacker News `http://news.ycombinator.com/`
+    - `hn_article.py`
+    - `hn_submissions.py`
 
 ### Execution Steps
 1. `cd` into the relevant sub-project directory
