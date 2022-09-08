@@ -1,7 +1,7 @@
 # Data Visualization
 
 ## Usable Files
-### Generating data
+### Generating Data
 * Simple Line Graph
     - `mpl_squares.py`
 * Scatter Plot
@@ -12,6 +12,8 @@
     - `die_visual.py`
 * Rolling Dice
     - `dice_visual.py`
-    
+### Downloading Data
+* CSV
+    - `sitka_highs.py`
 ### Execution Steps
-`python3 {graph_filename}`
+`python3 {filename}`
