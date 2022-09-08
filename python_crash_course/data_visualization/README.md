@@ -12,7 +12,7 @@
     - `die_visual.py`
 * Rolling Dice
     - `dice_visual.py`
-### Downloading Data `/download/`
+### Downloading Data `/download`
 * CSV
     - `sitka_highs.py`
     - `sitka_highs_lows.py`
@@ -21,7 +21,9 @@
     - `eq_explore_data.py`
     - `eq_world_map.py`
 ### Working with APIs `/apis`
-
+* GitHub `https://github.com/`
+    - `python_repos.py`
+    - `python_repos_visual.py`
 
 ### Execution Steps
 1. `cd` into the relevant sub-project directory
