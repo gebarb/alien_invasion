@@ -1,6 +1,4 @@
-{% extends "learning_logs/base.html" %} {% block content %} {% if form.errors %}
-<p>Your username and password didn't match. Please try again</p>
-{% endif %}
+{% extends "learning_logs/base.html" %} {% block content %}
 
 <form method="post" action="{% url 'users:register' %}">
   {% csrf_token %} {{ form.as_p }}
