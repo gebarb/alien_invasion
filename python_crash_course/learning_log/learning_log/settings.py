@@ -31,19 +31,16 @@ SECRET_KEY = os.environ.get(
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get(
+DEBUG = bool(int(os.environ.get(
     'DJANGO_DEBUG',
     0
-))
+)))
 
 
 ALLOWED_HOSTS = [
     'learning-log-env.us-west-2.elasticbeanstalk.com',
     'log.graysonebarb.com',
-    '172.31.27.217',
-    '54.201.199.22',
-    'localhost',
-    '127.0.0.1',
+    '172.31.27.217'
 ]
 
 
@@ -156,7 +153,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
