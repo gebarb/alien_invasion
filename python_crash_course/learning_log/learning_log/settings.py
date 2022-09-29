@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import logging
 import os
 from pathlib import Path
+
+logging.debug(os.environ)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,14 +31,19 @@ SECRET_KEY = os.environ.get(
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '1').lower() in ['true', 't', '1']
+DEBUG = bool(os.environ.get(
+    'DJANGO_DEBUG',
+    0
+))
+
 
 ALLOWED_HOSTS = [
     'learning-log-env.us-west-2.elasticbeanstalk.com',
     'log.graysonebarb.com',
     '172.31.27.217',
+    '54.201.199.22',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
 ]
 
 
@@ -48,6 +56,7 @@ INSTALLED_APPS = [
 
     # Third party apps
     'bootstrap4',
+    'storages',
 
     # Default django apps
     'django.contrib.admin',
@@ -147,7 +156,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -157,7 +166,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # My settings
 LOGIN_URL = 'users:login'
 
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False
+if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_S3_REGION_NAME = os.environ['AWS_S3_REGION_NAME']
+
+    AWS_S3_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_S3_ADDRESSING_STYLE = "virtual"
