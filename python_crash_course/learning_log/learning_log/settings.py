@@ -40,7 +40,10 @@ DEBUG = bool(int(os.environ.get(
 ALLOWED_HOSTS = [
     'learning-log-env.us-west-2.elasticbeanstalk.com',
     'log.graysonebarb.com',
-    '172.31.27.217'
+    '172.31.27.217',
+    'localhost',
+    '127.0.0.1',
+    'learning-log-ge.herokuapp.com'
 ]
 
 
